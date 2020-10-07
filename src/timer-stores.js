@@ -45,8 +45,8 @@ timeRemaining.subscribe(remaining => {
 	}
 })
 
-export const start = () => {
-	timeRemaining.set(get(timerStartMinutes) * 60 * 1000);
+export const start = (minutes) => {
+	timeRemaining.set(minutes * 60 * 1000);
 	timerRunning.set(true);
 }
 export const pause = () => {
@@ -54,6 +54,10 @@ export const pause = () => {
 }
 export const resume = () => {
 	timerRunning.set(true);
+}
+export const stop = () => {
+	//let it think the timer expired to allow the normal cleanup to take place
+	timeRemaining.set(-1);
 }
 
 export const prettyTimeRemaining = derived([timeRemaining], ([remaining]) => {

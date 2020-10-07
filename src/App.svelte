@@ -14,30 +14,40 @@
 	}
 </style>
 
-<div id="app" class:timer-expired={$timerExpired}>
-	<TimerDisplay />
+<div id="app" class:timer-expired={$timerExpired && !pickingDuration}>
+	{#if !pickingDuration}
+		<TimerDisplay />
+	{/if}
 
 	<div id="controls">
 		{#if $timerExpired}
-			<button on:click={start}>Start</button>
+			{#if pickingDuration}
+				<DurationSelection on:selected={() => pickingDuration = false} />
+			{:else}
+				<button on:click={() => pickingDuration = true}>Start</button>
+			{/if}
 		{:else}
 			{#if $timerRunning}
 				<button on:click={pause}>Pause</button>
 			{:else}
 				<button on:click={resume}>Resume</button>
 			{/if}
-			<button on:click={start}>Restart</button>
+			<button on:click={stop}>Restart</button>
 		{/if}
 	</div>
 </div>
 
 <script>
 	import TimerDisplay from "./TimerDisplay.svelte";
+	import DurationSelection from './DurationSelection.svelte';
 	import {
 		timerRunning,
 		timerExpired,
 		start,
 		resume,
-		pause
+		pause,
+		stop
 	} from "./timer-stores";
+
+	let pickingDuration = false;
 </script>

@@ -12,7 +12,7 @@ body {
     height: 100%;
 }
 body, button {
-    font-family: Arial, Noto Sans, sans-serif;
+    font-family: 'Press Start 2P', monospace;
 }
 button {
     background: none;
@@ -24,6 +24,7 @@ button {
     padding: 0.3rem;
     margin: 0.2rem;
     cursor: pointer;
+    font-size: 0.5rem;
 
     &:hover {
         background: rgba(96, 111, 125, 0.33);

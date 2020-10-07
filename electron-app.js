@@ -1,6 +1,5 @@
-const { app, BrowserWindow } = require('electron')
-const dev = process.argv.includes('--development');
-console.log(process.argv);
+const { app, BrowserWindow } = require('electron'),
+	dev = process.argv.includes('--development');
 
 function createWindow () {
 	const win = new BrowserWindow({

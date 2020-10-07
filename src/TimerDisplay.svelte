@@ -1,9 +1,3 @@
-<style>
-	p {
-        font-family: 'Press Start 2P', monospace;
-	}
-</style>
-
 <p>
 	{$prettyTimeRemaining}
 </p>
