@@ -6,6 +6,7 @@ function createWindow () {
 		width: 170,
 		//the default size is just enough to show the timer, but if the menu is visible it's too small
 		height: 90 + (dev ? 30 : 0),
+		icon: './src/icon.png',
 		webPreferences: {
 			nodeIntegration: true
 		}
